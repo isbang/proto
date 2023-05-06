@@ -22,7 +22,7 @@ import "google/longrunning/operations.proto";
 import "google/api/client.proto";
 
 option csharp_namespace = "Google.Cloud.ServiceUsage.V1";
-option go_package = "google.golang.org/genproto/googleapis/api/serviceusage/v1;serviceusage";
+option go_package = "cloud.google.com/go/serviceusage/apiv1/serviceusagepb;serviceusagepb";
 option java_multiple_files = true;
 option java_outer_classname = "ServiceUsageProto";
 option java_package = "com.google.api.serviceusage.v1";
@@ -209,7 +209,7 @@ message ListServicesRequest {
 
   // Requested size of the next page of data.
   // Requested page size cannot exceed 200.
-  //  If not set, the default page size is 50.
+  // If not set, the default page size is 50.
   int32 page_size = 2;
 
   // Token identifying which result to start with, which is returned by a
