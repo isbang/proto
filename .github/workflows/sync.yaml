@@ -1,0 +1,25 @@
+name: Weekly sync
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Execute sync script
+        run: /bin/bash ./.script/sync.sh
+
+      - name: Commit if there is any changes
+        run: |
+          if git diff-index --quiet HEAD ; then
+            git add .
+            git commit -m "Update protobuf files"
+            git push origin ${GITHUB_REF#refs/heads/}
+          fi
