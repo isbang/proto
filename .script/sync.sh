@@ -14,13 +14,17 @@ syncGoogleProto() {
 }
 
 syncGoogleApi() {
-  echo "[sync] google/api"
+  echo "[sync] google/api, google/type"
   git clone https://github.com/googleapis/googleapis.git .tmp/googleapis
-  rm -rf ./google/api
+  rm -rf ./google/api ./google/type
   cp -r .tmp/googleapis/google/api ./google/api
+  cp -r .tmp/googleapis/google/type ./google/type
 
   find google/api -type f -not -name "*.proto" -delete
   find google/api -type d -empty -delete
+
+  find google/type -type f -not -name "*.proto" -delete
+  find google/type -type d -empty -delete
 
   rm -rf .tmp/googleapis
 }
