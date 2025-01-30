@@ -31,7 +31,7 @@ syncGoogleApi() {
 
 syncEnvoyValidation() {
   echo "[sync] validate"
-  git clone https://github.com/envoyproxy/protoc-gen-validate.git .tmp/protoc-gen-validate
+  git clone https://github.com/bufbuild/protoc-gen-validate.git .tmp/protoc-gen-validate
   rm -rf ./validate
   cp -r .tmp/protoc-gen-validate/validate ./validate
 
